@@ -106,7 +106,7 @@ export default function ProductReviews({product}) {
               <Spinner fullWidth={true} />
             )}
             {reviews.length === 0 && (
-              <p>No reviews : </p>
+              <p>No reviews :(</p>
             )}
             {reviews.length > 0 && reviews.map(review => (
               <ReviewWrapper key={review._id}>
