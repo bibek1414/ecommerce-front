@@ -50,11 +50,11 @@ const Footer = () => (
     </div>
     <CopyRight>&copy; {new Date().getFullYear()} Hamro Pasal. All rights reserved.</CopyRight>
     <SocialIcons>
-        <IconLink href="https://www.facebook.com"><FaFacebook /></IconLink>
-        <IconLink href="https://www.twitter.com"><FaTwitter /></IconLink>
-        <IconLink href="https://www.instagram.com"><FaInstagram /></IconLink>
-        <IconLink href="https://www.google.com"><FaGoogle /></IconLink> 
-      </SocialIcons>
+  <IconLink href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></IconLink>
+  <IconLink href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></IconLink>
+  <IconLink href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></IconLink>
+  <IconLink href="https://www.google.com" target="_blank" rel="noopener noreferrer"><FaGoogle /></IconLink>
+</SocialIcons>
   </FooterContainer>
 );
 
