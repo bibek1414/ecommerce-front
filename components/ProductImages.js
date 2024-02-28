@@ -8,6 +8,10 @@ const Image = styled.img`
 const BigImage = styled.img`
   max-width: 100%;
   max-height: 200px;
+  transition: transform 0.5s ease; /* Smooth transition for scaling */
+  &:hover {
+    transform: scale(1.7); /* Scale up on hover */
+  }
 `;
 const ImageButtons = styled.div`
     display: flex;

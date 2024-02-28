@@ -55,7 +55,7 @@ export default function ProductPage({product}) {
         <ProductReviews product={product} />
       </Center>
     </>
-  );
+  );  
 }
 
 export async function getServerSideProps(context) {
