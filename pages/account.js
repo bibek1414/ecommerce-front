@@ -12,6 +12,7 @@ import Spinner from "../components/Spinner";
 import ProductBox from "../components/ProductBox";
 import Tabs from "../components/Tabs"
 import SingleOrder from "../components/SingleOrder";
+import Footer from "../components/Footer";
 
 const ColsWrapper = styled.div`
   display:grid;
@@ -209,6 +210,7 @@ export default function AccountPage() {
           </div>
         </ColsWrapper>
       </Center>
+      <Footer />
     </>
   );
 }
