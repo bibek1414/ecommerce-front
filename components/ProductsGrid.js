@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 import ProductBox from "./ProductBox";
-import {RevealWrapper} from 'next-reveal';
+import { RevealWrapper } from 'next-reveal';
 
 const StyledProductsGrid = styled.div`
   display: grid;
@@ -11,13 +12,29 @@ const StyledProductsGrid = styled.div`
   }
 `;
 
-export default function ProductsGrid({products,wishedProducts=[]}) {
+export default function ProductsGrid({ products, wishedProducts = [] }) {
+  const [shuffledProducts, setShuffledProducts] = useState([]);
+
+  useEffect(() => {
+    // Shuffle the products array when the component mounts or when products change
+    shuffleProducts();
+  }, [products]);
+
+  const shuffleProducts = () => {
+    const shuffledArray = [...products];
+    for (let i = shuffledArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+    }
+    setShuffledProducts(shuffledArray);
+  };
+
   return (
     <StyledProductsGrid interval={100}>
-      {products?.length > 0 && products.map((product,index) => (
-        <RevealWrapper key={product._id} delay={index*50}>
+      {shuffledProducts?.length > 0 && shuffledProducts.map((product, index) => (
+        <RevealWrapper key={product._id} delay={index * 50}>
           <ProductBox {...product}
-                      wished={wishedProducts.includes(product._id)} />
+            wished={wishedProducts.includes(product._id)} />
         </RevealWrapper>
       ))}
     </StyledProductsGrid>
