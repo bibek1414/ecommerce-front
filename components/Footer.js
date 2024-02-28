@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FaFacebook, FaTwitter, FaInstagram,FaGoogle } from "react-icons/fa";
+
 
 const FooterContainer = styled.footer`
   background-color: #222;
@@ -17,6 +19,21 @@ const FooterLink = styled.a`
     color: #fff;
   }
 `;
+const SocialIcons = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+`;
+const IconLink = styled.a`
+  color: #fff;
+  font-size: 20px;
+  transition: color 0.3s;
+  
+  &:hover {
+    color: #00f; /* Change color on hover */
+  }
+`;
 
 const CopyRight = styled.div`
   margin-top: 20px;
@@ -32,6 +49,12 @@ const Footer = () => (
       <FooterLink href="/terms">Terms & Conditions</FooterLink>
     </div>
     <CopyRight>&copy; {new Date().getFullYear()} Hamro Pasal. All rights reserved.</CopyRight>
+    <SocialIcons>
+        <IconLink href="https://www.facebook.com"><FaFacebook /></IconLink>
+        <IconLink href="https://www.twitter.com"><FaTwitter /></IconLink>
+        <IconLink href="https://www.instagram.com"><FaInstagram /></IconLink>
+        <IconLink href="https://www.google.com"><FaGoogle /></IconLink> 
+      </SocialIcons>
   </FooterContainer>
 );
 
