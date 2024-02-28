@@ -24,7 +24,7 @@ const AboutUs = () => {
     <AboutContainer>
       <Title>About Us</Title>
       <Paragraph>
-        Hamro Pasal's business concept is to offer solutions to all tech-related problems at the best price in a sustainable way. Hamro Pasal was founded in 2021 and has grown into one of the leading technology sites. The content of this site is copyright protected and is the property of Hamro Pasal.
+        Hamro Pasal&apos;s business concept is to offer solutions to all tech-related problems at the best price in a sustainable way. Hamro Pasal was founded in 2021 and has grown into one of the leading technology sites. The content of this site is copyright protected and is the property of Hamro Pasal.
       </Paragraph>
     </AboutContainer>
   );
