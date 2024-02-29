@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
+import axios from 'axios';
 import ProductBox from "./ProductBox";
 import { RevealWrapper } from 'next-reveal';
 
@@ -15,13 +16,27 @@ const StyledProductsGrid = styled.div`
 export default function ProductsGrid({ products, wishedProducts = [] }) {
   const [shuffledProducts, setShuffledProducts] = useState([]);
 
+  const fetchRecommendations = async () => {
+    try {
+      const res = await axios.get('/api/recommendations');
+      return res.data;
+    } catch (error) {
+      console.error('Failed to fetch recommendations:', error);
+      return [];
+    }
+  };
+
   useEffect(() => {
-    // Shuffle the products array when the component mounts or when products change
-    shuffleProducts();
+    const loadRecommendations = async () => {
+      const recommendedProducts = await fetchRecommendations();
+      const mergedProducts = [...products, ...recommendedProducts];
+      shuffleProducts(mergedProducts);
+    };
+    loadRecommendations();
   }, [products]);
 
-  const shuffleProducts = () => {
-    const shuffledArray = [...products];
+  const shuffleProducts = (mergedProducts) => {
+    const shuffledArray = [...mergedProducts];
     for (let i = shuffledArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
